@@ -1,32 +1,3 @@
-
-Pull requests
-Issues
-Codespaces
-Marketplace
-Explore
-@Amaiikah
-Raniaelmorabet /
-alx-low_level_programming
-Public
-
-Fork your own copy of Raniaelmorabet/alx-low_level_programming
-
-Code
-Issues
-Pull requests
-Actions
-Projects
-Security
-
-    Insights
-
-alx-low_level_programming/0x04-more_functions_nested_loops/9-fizz_buzz.c
-@Raniaelmorabet
-Raniaelmorabet Fizz-Buzz
-Latest commit cac5058 Feb 23, 2023
-History
-1 contributor
-30 lines (27 sloc) 410 Bytes
 #include <stdio.h>
 #include "main.h"
 
