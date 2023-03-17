@@ -1,78 +1,42 @@
-#include "holberton.h"
 #include <stdio.h>
 #include <stdlib.h>
 
 /**
- * _realloc - function that reallocates a memory block using malloc and free
- * @ptr: pointer to the old array
- * @old_size: size of the memory space to allocate in bytes
- * @new_size: size of type
- * Return: void pointer
+ * _realloc - Entry point
+ *@ptr: pointer to the memory previously allocated
+ *@old_size: size of the allocated ptr
+ *@new_size: size of new memory block
+ * Return: a pointer to an array
  */
-
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	void *newptr;
+	char *array = NULL;
+	char *p = NULL;
+	unsigned int i;
+	char *px = NULL;
 
 	if (ptr == NULL)
 	{
-		newptr = malloc(new_size);
-		if (newptr == NULL)
-		{
-			free(ptr);
+		array = malloc(new_size);
+		if (array == NULL)
 			return (NULL);
-		}
-		free(ptr);
-		return (newptr);
+		return (array);
 	}
-	if (old_size == 0)
-		return (NULL);
-	if (new_size == old_size)
-		return (ptr);
 	if (new_size == 0 && ptr != NULL)
 	{
 		free(ptr);
 		return (NULL);
 	}
-	if (new_size > old_size)
+	if (new_size ==  old_size)
+		return (ptr);
+	p = malloc(new_size);
+	if (p != NULL)
 	{
-		newptr = malloc(new_size);
-		if (newptr == NULL)
-		{
-			free(ptr);
-			return (NULL);
-		}
-		_memcpy(newptr, ptr, old_size);
+		px = (char *)ptr;
+		for (i = 0; i < old_size; i++)
+			p[i] = px[i];
 		free(ptr);
+		return (p);
 	}
-	return (newptr);
+	return (NULL);
 }
-
-#include "holberton.h"
-#include <stdio.h>
-
-/**
- * _memcpy - function that copies memory area
- *
- * @dest: parameter defined in main, pointer to memory area (dest)
- * @src: parameter defined in main, pointer to another memory area (src)
- * @n: parameter defined in main, number of bytes to be copied from src
- *
- * Return: memory address of function (memory area)
- */
-
-char *_memcpy(char *dest, char *src, unsigned int n)
-{
-	unsigned int i;
-	char *tmp = dest;
-
-	for (i = 0; i < n; i++)
-	{
-		*dest = *src;
-		dest++;
-		src++;
-	}
-	dest = tmp;
-	return (dest);
-}
-
